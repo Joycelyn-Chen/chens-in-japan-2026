@@ -374,7 +374,7 @@ const PACK = [
     ['夜燈或小手電筒', '民宿夜裡上廁所；Nagomiya、Villa 要走樓梯'],
     ['輕便尿褲或護墊（備用）', '山路車程長，休息站間隔不一定剛好'],
   ]},
-  {t: '寶寶（1 歲）', who: '每天換住處、車程多', items: [
+  {t: '寶寶（2 歲）', who: '每天換住處、車程多', items: [
     ['兒童安全座椅', '日本法規 6 歲以下要坐；跟 TOYOTA 確認有加訂'],
     ['背帶（比推車好用）', '高千穗峽、鍋ヶ滝、湯之坪街道有坡和石階'],
     ['尿布、濕紙巾（先帶 3 天份）', '其餘到藥妝店或超市買'],
@@ -427,7 +427,7 @@ function renderPack() {
   const c = loadChecks(), total = PACK.reduce((n, g) => n + g.items.length, 0);
   const done = Object.values(c).filter(Boolean).length;
   return `<h2 class="sec">行李清單</h2>
-    <p class="muted" style="margin:0">依我們家的成員準備：85 歲的阿嬤、1 歲的寶寶，還有幾位很怕冷的人。勾選只會存在你自己的手機上。</p>
+    <p class="muted" style="margin:0">依我們家的成員準備：85 歲的阿嬤、2 歲的寶寶，還有幾位很怕冷的人。勾選只會存在你自己的手機上。</p>
     <p class="progress" id="packprog">已準備 ${done} / ${total} 項</p>
     <div class="packgrid">${PACK.map((g, gi) => `<div class="pack"><h3>${esc(g.t)}</h3><p class="who">${esc(g.who)}</p><ul>
       ${g.items.map((it, ii) => { const k = packKey(gi, ii); return `<li><label for="${k}"><input type="checkbox" id="${k}" data-k="${k}"${c[k] ? ' checked' : ''}><span>${esc(it[0])}<span class="why">${esc(it[1])}</span></span></label></li>`; }).join('')}
